@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<link rel='stylesheet' href='css/reset.css'>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<body>
+<div class="col-xs-2">
+  <label for="ex1">col-xs-2</label>
+  <input class="form-control" id="ex1" type="text">
+</div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$.post("../FetchIssues",
+        {repos:"Shippable/support"},
+        function(data,status){
+	
+});
+</script>
+</html>

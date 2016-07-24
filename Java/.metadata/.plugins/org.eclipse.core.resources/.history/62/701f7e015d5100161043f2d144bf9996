@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<link rel='stylesheet' href='css/reset.css'>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<body>
+<div class="col-xs-2">
+  <label for="ex1">Owner</label>
+  <input class="form-control" id="ex1" type="text">
+</div>
+<div style="padding-top: 30px; padding-right:0px !important;">/</div>
+<div class="col-xs-2">
+  <label for="ex1">Repository</label>
+  <input class="form-control" id="ex1" type="text">
+</div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+getIssueStatus("Shippable","support");
+function getIssueStatus(owner,repo){
+	$.post("../FetchIssues",
+	        {repos:owner+"/"+repo},
+	        function(data,status){
+	        	console.log(data);
+		
+	});
+}
+</script>
+</html>

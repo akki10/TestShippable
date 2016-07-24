@@ -1,0 +1,104 @@
+
+
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.eclipse.egit.github.core.Issue;
+import org.eclipse.egit.github.core.client.GitHubClient;
+import org.eclipse.egit.github.core.service.IssueService;
+
+/**
+ * Servlet implementation class FetchIssues
+ */
+@WebServlet("/FetchIssues")
+public class FetchIssues extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    /**
+     * Default constructor. 
+     */
+    public FetchIssues() {
+        
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String[] repoInfo = request.getParameter("repos").split("/");
+       	GitHubClient client = new GitHubClient();
+       	IssueService issueService = new IssueService(client);
+       	Map <String,String> params = new HashMap<String, String>();
+       	System.out.println("Now..");
+//       	DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS");
+       	Calendar cal = Calendar.getInstance();
+       	Date todayDate = new Date();
+
+       	cal.add(Calendar.DATE, -1);
+       	Date yesterday = cal.getTime();
+       	System.out.println(cal.getTime());
+       	
+       	System.out.println("Now..2");
+       	cal.add(Calendar.DATE, -7);
+       	Date before7days = cal.getTime();
+       	System.out.println(before7days);
+//       	
+       	List<Issue> repo_issues = issueService.getIssues(repoInfo[0], repoInfo[1], null);
+       	System.out.println("Now..3");
+       	int openIssues = repo_issues.size();
+       	int openIssues24Hr = 0;
+       	int openIssues7days = 0;
+       	int openIssuesOthers = 0;
+       	for(Issue issue : repo_issues){
+       		if(issue.getCreatedAt().before(yesterday)){
+       			++openIssues24Hr;
+       			
+       		}
+       		else if(issue.getCreatedAt().before(before7days)){
+       			++openIssues7days;
+       		}
+       		else{
+       			++openIssuesOthers;
+       		}
+       	}
+       	
+       	
+       	
+//       	params.put("since", yesterday);
+//       	List<Issue> repo_issues_24Hr = issueService.getIssues(repoInfo[0], repoInfo[1], null);
+//       	System.out.println("Now..4");
+
+//       	
+//       	params.put("since", before7days);
+//       	List<Issue> repo_issues_7days = issueService.getIssues(repoInfo[0], repoInfo[1], null);
+//       	System.out.println("Now..5");
+       	
+       	System.out.println("Total Number of Open Issues: "+openIssues);
+       	System.out.println("Number of open issues that were opened in the last 24 hours: "+openIssues24Hr);
+       	System.out.println("Number of open issues that were opened more than 24 hours ago but less than 7 days ago: "+(openIssues7days));
+       	System.out.println("Number of open issues that were opened more than 7 days ago: "+openIssuesOthers);
+       	
+       	
+	}
+
+}

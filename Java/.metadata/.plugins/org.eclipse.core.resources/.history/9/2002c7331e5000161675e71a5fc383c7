@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+$.post("FetchIssues",
+        {repos:"Shippable/support"},
+        function(data,status){
+	
+}
+</script>
+<body>
+
+</body>
+</html>

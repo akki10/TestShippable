@@ -1,0 +1,94 @@
+/*Mapping portal stylesheet*/
+
+.clearfix::after {
+  content: '';
+  width: 0px;
+  height: 0;
+  line-height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body{
+  font-size:1em;
+  font-family:ubuntulight;
+  background: #DEE2E3 none repeat scroll 0% 0%
+}
+
+li {
+  list-style:none;
+}
+
+input[type=button]{
+	cursor:pointer;
+}
+input, textarea{
+	font-family:ubuntu;
+}
+/*****************************************HEADER*****************************************/
+
+header#main{
+  background:#202832;
+  color:white;
+  overflow: hidden;
+
+}
+
+#pageTitle {
+  margin: 15px 30px; 
+  float:left;
+}
+
+#pageTitle img{
+  vertical-align: middle;
+  margin: 0px 10px;
+}
+/*
+#pageTitle span{
+  display: inline-block;
+  padding-top:12px;
+}
+*/
+
+#nav{
+	font-family:ubuntubold;
+	margin-top: 35px;
+    position: absolute;
+    right: 50px;
+
+}
+
+#nav li {
+  display: inline-block;
+  margin-left:15px;
+}
+
+/*****************************************HEADER*****************************************/
+/*****************************************DASHBOARD TABLE*****************************************/
+
+#dash_table{
+	margin-top:50px;
+	margin-left:150px;
+	font-family:ubuntulight;
+}
+tr{
+	cursor:pointer;
+	
+}
+td {
+	padding:10px;
+}
+.table_heads{
+	font-family:ubuntubold;
+	
+}
+/*****************************************DASHBOARD TABLE*****************************************/

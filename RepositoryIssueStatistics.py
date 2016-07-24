@@ -15,6 +15,8 @@ gh = Github()
 today = datetime.datetime.now()
 yesterday = today - timedelta(1)
 before7day = today - timedelta(7)
+print yesterday
+print before7day
 
 
 repo_issues = gh.issues.list_by_repo(user="Shippable", repo="support")

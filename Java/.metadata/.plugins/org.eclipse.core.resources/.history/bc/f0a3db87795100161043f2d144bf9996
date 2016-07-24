@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  .center{
+	width:500px;
+  }
+</style>
+</head>
+<link rel='stylesheet' href='css/reset.css'>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<body>
+
+<div class="container">		
+	<div class="col-sm-4">
+		<div class="col-sm-1">
+		  <label for="ex1">Owner</label>
+		  <input class="form-control" id="owner" type="text">
+		</div>
+		<div class="col-sm-1" style="width:10px !important;padding:0px;padding-top:30px;">/</div>
+		<div class="col-sm-1">
+		  <label for="ex1">Repository</label>
+		  <input class="form-control" id="repo" type="text">
+		</div>
+	<div class="col-sm-1" style="padding-top:25px;">
+		<button type="button" class="btn btn-primary" onclick = "getIssueStatus();">Get!</button>
+	</div>
+	</div>
+	<table class="table table-hover" id="repo_status">
+
+	</table>
+</div>
+
+</body>
+
+<script type="text/javascript">
+//getIssueStatus("Shippable","support");
+function makeStatusTable(repo_status){
+	var tbl = document.getElementById("repo_status");
+	
+	var row1 = tbl.insertRow(0);
+	var cell11 = row1.insertCell(0);
+    var cell12 = row1.insertCell(1);
+    var row2 = tbl.insertRow(1);
+	var cell21 = row2.insertCell(0);
+    var cell22 = row2.insertCell(1);
+	var row3 = tbl.insertRow(2);
+	var cell31 = row3.insertCell(0);
+    var cell32 = row3.insertCell(1);
+	var row4 = tbl.insertRow(3);
+	var cell41 = row4.insertCell(0);
+    var cell42 = row4.insertCell(1);
+	
+    cell11.innerHTML = "Total Open Issues";
+    console.log(repo_status.issuesTotal);
+    cell12.innerHTML = repo_status.issuesTotal;
+    
+    
+    cell21.innerHTML = "Last 24Hr Open Issues";
+    cell22.innerHTML = repo_status.issues24Hr;
+    
+    cell31.innerHTML = "Last 7 days Open Issues";
+    cell32.innerHTML = repo_status.issues7Days;
+    
+    cell41.innerHTML = "More than 7 days Open Issues";
+    cell42.innerHTML = repo_status.issuesOther;
+    
+    
+}
+function getIssueStatus(){
+	owner = document.getElementById("owner").value;
+	repo =  document.getElementById("repo").value;
+	$.post("../FetchIssues",
+	        {repos:owner+"/"+repo},
+	        function(data,status){
+	        	repo_status = JSON.parse(data);
+	        	makeStatusTable(repo_status);
+		
+	});
+}
+</script>
+</html>
