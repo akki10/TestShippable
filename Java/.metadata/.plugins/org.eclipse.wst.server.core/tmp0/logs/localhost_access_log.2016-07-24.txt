@@ -417,3 +417,10 @@
 127.0.0.1 - - [24/Jul/2016:14:28:52 +0530] "GET /RespositoryIssueStats/Shippable/js/jquery.min.js HTTP/1.1" 200 97362
 127.0.0.1 - - [24/Jul/2016:14:28:52 +0530] "GET /RespositoryIssueStats/Shippable/css/bootstrap.min.css.map HTTP/1.1" 404 1108
 127.0.0.1 - - [24/Jul/2016:14:29:04 +0530] "POST /RespositoryIssueStats/FetchIssues HTTP/1.1" 200 66
+127.0.0.1 - - [24/Jul/2016:15:24:18 +0530] "GET /RespositoryIssueStats/Shippable/ HTTP/1.1" 200 2677
+127.0.0.1 - - [24/Jul/2016:15:24:18 +0530] "GET /RespositoryIssueStats/Shippable/css/reset.css HTTP/1.1" 200 1066
+127.0.0.1 - - [24/Jul/2016:15:24:18 +0530] "GET /RespositoryIssueStats/Shippable/css/bootstrap.min.css HTTP/1.1" 200 121260
+127.0.0.1 - - [24/Jul/2016:15:24:18 +0530] "GET /RespositoryIssueStats/Shippable/js/jquery.min.js HTTP/1.1" 200 97362
+127.0.0.1 - - [24/Jul/2016:15:24:18 +0530] "GET /favicon.ico HTTP/1.1" 404 1016
+127.0.0.1 - - [24/Jul/2016:15:24:27 +0530] "POST /RespositoryIssueStats/FetchIssues HTTP/1.1" 200 64
+127.0.0.1 - - [24/Jul/2016:15:24:38 +0530] "POST /RespositoryIssueStats/FetchIssues HTTP/1.1" 200 66

@@ -51,7 +51,7 @@ function deleteRows(tbl) {
 function makeStatusTable(repo_status){
 	
 	var tbl = document.getElementById("repo_status");
-	deleteRows(tbl)
+	
 	var row1 = tbl.insertRow(0);
 	var cell11 = row1.insertCell(0);
     var cell12 = row1.insertCell(1);

@@ -42,9 +42,16 @@
 
 <script type="text/javascript">
 //getIssueStatus("Shippable","support");
+function deleteRows(tbl) {
+	    var rowCount =  tbl.rows.length;
+	    for (var i = rowCount-1; i >= 0; i--) {
+	    	 tbl.deleteRow(i);
+	    }
+	}
 function makeStatusTable(repo_status){
-	var tbl = document.getElementById("repo_status");
 	
+	var tbl = document.getElementById("repo_status");
+	deleteRows(tbl)
 	var row1 = tbl.insertRow(0);
 	var cell11 = row1.insertCell(0);
     var cell12 = row1.insertCell(1);
